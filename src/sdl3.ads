@@ -10,11 +10,11 @@
 --  Ada bindings to the SDL 3.x.y library.
 --------------------------------------------------------------------------------------------------------------------
 with Interfaces.C;
-with SDL_Linker;
+-- with SDL3_Linker;
 
-package SDL is
+package SDL3 is
    pragma Pure;
-   pragma Linker_Options (SDL_Linker.Options);
+   -- pragma Linker_Options (SDL_Linker.Options);
 
    package C renames Interfaces.C;
 
@@ -30,16 +30,9 @@ package SDL is
    Enable_Haptic          : constant Init_Flags := 16#0000_1000#;
    Enable_Game_Controller : constant Init_Flags := 16#0000_2000#;
    Enable_Events          : constant Init_Flags := 16#0000_4000#;
-   Enable_No_Parachute    : constant Init_Flags := 16#0010_0000#;
-   Enable_Everything      : constant Init_Flags :=
-     Enable_Timer
-     or Enable_Audio
-     or Enable_Video
-     or Enable_Joystick
-     or Enable_Haptic
-     or Enable_Game_Controller
-     or Enable_Events
-     or Enable_No_Parachute;
+   Enable_Sensors         : constant Init_Flags := 16#0000_8000#;
+   -- WARNING: SDL_INIT_EVERYTHING was deprecated in SDL3.
+   -- The recommended use it to manually add Init_Flags.
 
    --  Coordinates are for positioning things.
    subtype Coordinate is C.int;
@@ -49,8 +42,8 @@ package SDL is
    Centre_Coordinate : constant Coordinate := 0;
 
    type Coordinates is record
-      X : SDL.Coordinate;
-      Y : SDL.Coordinate;
+      X : SDL3.Coordinate;
+      Y : SDL3.Coordinate;
    end record
    with Convention => C;
 
@@ -97,37 +90,29 @@ package SDL is
    function "/" (Left : in Sizes; Scale : in Positive_Dimension) return Sizes
    is (Sizes'(Width => Left.Width / Scale, Height => Left.Height / Scale));
 
-   function Initialise
-     (Flags : in Init_Flags := Enable_Everything) return Boolean
+   function Initialise_Sub_System (Flags : Init_Flags) return Boolean
    with Inline;
+
+   function Initialise (Flags : Init_Flags) return Boolean
+   renames Initialise_Sub_System;
+
+   procedure Quit_Sub_System (Flags : Init_Flags)
+   with Import => True, Convention => C, External_Name => "SDL_QuitSubSystem";
 
    procedure Quit
    with Import => True, Convention => C, External_Name => "SDL_Quit";
 
-   function Initialise_Sub_System (Flags : in Init_Flags) return Boolean
-   with Inline;
-
-   procedure Quit_Sub_System (Flags : in Init_Flags)
-   with Import => True, Convention => C, External_Name => "SDL_QuitSubSystem";
-
    --  Get which sub-systems were initialised.
-   function What_Was_Initialised return Init_Flags
+   function Get_Initialised return Init_Flags
    with Inline;
 
    --  Check whether a set of sub-systems were initialised.
-   function Was_Initialised (Flags : in Init_Flags) return Boolean
+   function Was_Initialised (Flags : Init_Flags) return Boolean
    with Inline;
 
 private
    --  If any SDL2 function returns 0 for success, use this constant for readability.
    Success : constant Interfaces.C.int := 0;
-
-   type SDL_Bool is (SDL_False, SDL_True) with Convention => C;
-
-   function To_Bool (Value : in Boolean) return SDL_Bool
-   is (if Value then SDL_True else SDL_False);
-   function To_Boolean (Value : in SDL_Bool) return Boolean
-   is (if Value = SDL_True then True else False);
 
    --  The next value is used in mapping the Ada types onto the C types, it is the word size used for all data
    --  in SDL, i.e. all data is 4 byte aligned so it works with 32-bit architectures.
@@ -138,4 +123,4 @@ private
    SDL_Ignore  : constant C.int := 0;
    SDL_Disable : constant C.int := 0;
    SDL_Enable  : constant C.int := 1;
-end SDL;
+end SDL3;
