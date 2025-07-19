@@ -6,10 +6,15 @@ for SDL2.
 
 ## Comparison with SDL2
 
-SDL3 introduces several quality of life features in contrast to SDL2.
-See more details in [migration guide.](https://github.com/libsdl-org/SDL/blob/main/docs/README-migration.md):
+SDL3 introduces new features and improvements
+over SDL2;
+see more details in [migration guide.](https://github.com/libsdl-org/SDL/blob/main/docs/README-migration.md)
+For Ada, here are the relevant items:
 
-- There is no `sdl2-config`: the linker flag is now `-lSDL3`.
+- There is no `sdl3-config` command: the linker flag is now `-lSDL3`.
+  This project automatically does this for you!
+- More device support! Tablets, cameras, etc.
+- A new [GPU API](https://wiki.libsdl.org/SDL3/CategoryGPU), targeting modern hardware.
 
 Now, SDL2 apps can run with SDL3 using [sdl2-compat](https://github.com/libsdl-org/sdl2-compat).
 However, for **new projects**, it is recommended
@@ -22,7 +27,7 @@ on the following major targets:
 
 - Windows.
 - Linux.
-- MacOS
+- MacOS.
 - iOS.
 - Android.
 
