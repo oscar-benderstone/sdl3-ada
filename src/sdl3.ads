@@ -1,8 +1,10 @@
--- SPDX-FileCopyrightText: Copyright contributors to the sdlada project.
--- SPDX-License-Identifier: Zlib
---
--- Modified from: the sdlada project <https://github.com/ada-game-framework/sdlada>,
--- licensed under the Zlib license.
+// SPDX-FileCopyrightText: Copyright contributors to the sdlada project.
+// SPDX-License-Identifier: Zlib
+//
+// Modified from:
+// the sdlada project
+// <https://github.com/ada-game-framework/sdlada>,
+// licensed under the Zlib license.
 --
 --------------------------------------------------------------------------------------------------------------------
 --  SDL3
