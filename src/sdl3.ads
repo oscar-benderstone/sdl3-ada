@@ -1,10 +1,10 @@
-// SPDX-FileCopyrightText: Copyright contributors to the sdlada project.
-// SPDX-License-Identifier: Zlib
-//
-// Modified from:
-// the sdlada project
-// <https://github.com/ada-game-framework/sdlada>,
-// licensed under the Zlib license.
+-- SPDX-FileCopyrightText: Copyright contributors to the sdlada project.
+-- SPDX-License-Identifier: Zlib
+--
+-- Modified from:
+-- the sdlada project
+-- <https://github.com/ada-game-framework/sdlada>,
+-- licensed under the Zlib license.
 --
 --------------------------------------------------------------------------------------------------------------------
 --  SDL3
@@ -12,7 +12,6 @@
 --  Ada bindings to the SDL 3.x.y library.
 --------------------------------------------------------------------------------------------------------------------
 with Interfaces.C;
--- with SDL3_Linker;
 
 package SDL3 is
    pragma Pure;

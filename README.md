@@ -4,6 +4,9 @@ Unofficial SDL3 bindings for Ada,
 modifying code from [sdlada](https://github.com/ada-game-framework/sdlada)
 for SDL2.
 
+To get started, first
+look at [vendored/README.md](/vendored/README.md).
+
 ## Comparison with SDL2
 
 SDL3 introduces new features and improvements
@@ -38,8 +41,10 @@ support, but this is not guaranteed.
 ## Credits
 
 - [sdlada](https://github.com/ada-game-framework/sdlada):
-  modified under the Zlib license. These are fantastic bindings,
+  Modified under the Zlib license. These are fantastic bindings,
   and the source code is easy to follow!
-- [AdaCore](https://www.adacore.com/).
+- [AdaCore](https://www.adacore.com/):
   Thank you to AdaCore and its contributors for the entire ecosystem.
   Ada is a great language!
+- [SDL](https://github.com/libsdl-org/SDL):
+  Used under the Zlib license.

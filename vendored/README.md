@@ -8,4 +8,10 @@ In this way, dependencies
 can be explicitly downloaded
 and built by the user.
 
-To use this script manually, run `cmake . -B .`
+You will need to have CMake installed.
+An easy way to get CMake is through
+Python, using: `pip install cmake`.
+(This also works for `pipx`, `conda`, etc.)
+
+To use this script manually, run `cmake . -B build`
+in this folder.

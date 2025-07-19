@@ -1,0 +1,17 @@
+name = "tests"
+description = "Test suite for sdl3_ada."
+version = "0.1.0-dev"
+
+authors = ["Oscar Bender-Stone"]
+maintainers = ["Oscar Bender-Stone <oscarbenderstone@gmail.com>"]
+maintainers-logins = ["oscar-benderstone"]
+licenses = "Zlib"
+website = ""
+tags = ["tests", "sdl"]
+
+[[depends-on]]
+# aunit = "^24.0.0"
+sdl3_ada = "~0.1.0"
+
+[[pins]]
+sdl3_ada = { path = '..' }

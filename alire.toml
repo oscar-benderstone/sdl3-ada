@@ -11,3 +11,11 @@ maintainers-logins = ["oscar-benderstone"]
 licenses = "Zlib"
 website = ""
 tags = ["sdl", "portable"]
+
+[[actions]]
+type = "post-fetch"
+command = ["cmake", "-S", "vendored", "-B", "vendored/build"]
+
+[[actions]]
+type = "pre-build"
+command = ["cmake", "--build", "vendored/build"]
