@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Copyright Oscar Bender-Stone <oscar-benderstone@gmail.com>
+# SPDX-License-Identifier: Zlib
+
+name = "sdl3_ada"
+description = "Unofficial SDL3 bindings for Ada."
+version = "0.1.0-dev"
+
+authors = ["Oscar Bender-Stone"]
+maintainers = ["Oscar Bender-Stone <oscarbenderstone@gmail.com>"]
+maintainers-logins = ["oscar-benderstone"]
+licenses = "Zlib"
+website = ""
+tags = ["sdl", "portable"]

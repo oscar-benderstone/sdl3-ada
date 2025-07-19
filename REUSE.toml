@@ -1,0 +1,40 @@
+version = 1
+
+[[annotations]]
+path = "bin/*"
+SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
+SPDX-License-Identifier = "Zlib"
+
+# Primarily included to satisfy REUSE,
+# even though these directories 
+# are excluded in git.
+
+[[annotations]]
+path = "alire/*"
+SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
+SPDX-License-Identifier = "Zlib"
+
+[[annotations]]
+path = "config/*"
+SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
+SPDX-License-Identifier = "Zlib"
+
+[[annotations]]
+path = "lib/*"
+SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
+SPDX-License-Identifier = "Zlib"
+
+[[annotations]]
+path = "obj/*"
+SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
+SPDX-License-Identifier = "Zlib"
+
+[[annotations]]
+path = "share/*"
+SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
+SPDX-License-Identifier = "Zlib"
+
+[[annotations]]
+path = ".gitignore"
+SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
+SPDX-License-Identifier = "CC0-1.0"
