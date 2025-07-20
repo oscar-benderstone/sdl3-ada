@@ -12,11 +12,23 @@ path = ".gitignore"
 SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
 SPDX-License-Identifier = "CC0-1.0"
 
+
+[[annotations]]
+path = "*/.gitignore"
+SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
+SPDX-License-Identifier = "CC0-1.0"
+
+
 [[annotations]]
 path = "README.md"
 SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
 SPDX-License-Identifier = "CC0-1.0"
 
+
+[[annotations]]
+path = "*/README.md"
+SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
+SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
 path = "alire/*"

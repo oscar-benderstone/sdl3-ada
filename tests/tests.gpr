@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2025 Copyright contributors to the sdl3_ada project.
+-- SPDX-License-Identifier: Zlib
+
 with "config/tests_config.gpr";
 project Tests is
 

@@ -1,3 +1,6 @@
+-- SPDX-FileCopyrightText: 2025 Copyright Oscar Bender-Stone <oscar-benderstone@gmail.com>
+-- SPDX-License-Identifier: Zlib
+
 with SDL3;
 with SDL3.Log;
 with SDL3.Locale;

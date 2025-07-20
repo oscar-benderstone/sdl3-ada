@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Copyright Oscar Bender-Stone <oscar-benderstone@gmail.com>
+# SPDX-License-Identifier: Zlib
+
 name = "tests"
 description = "Test suite for sdl3_ada."
 version = "0.1.0-dev"

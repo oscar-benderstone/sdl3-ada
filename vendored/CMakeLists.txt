@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Copyright Oscar Bender-Stone <oscar-benderstone@gmail.com>
 # SPDX-License-Identifier: Zlib
+#
 # Modified from:
 # [sdl3-sample]
 # (https://github.com/Ravbug/sdl3-sample)
