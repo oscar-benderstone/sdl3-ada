@@ -36,7 +36,7 @@ package SDL3 is
    Enable_Events          : constant Init_Flags := 16#0000_4000#;
    Enable_Sensors         : constant Init_Flags := 16#0000_8000#;
    -- WARNING: SDL_INIT_EVERYTHING was deprecated in SDL3.
-   -- The recommended use it to manually add Init_Flags.
+   -- The recommended use is to manually add Init_Flags.
 
    --  Coordinates are for positioning things.
    subtype Coordinate is C.int;
@@ -115,9 +115,6 @@ package SDL3 is
    with Inline;
 
 private
-   --  If any SDL2 function returns 0 for success, use this constant for readability.
-   Success : constant Interfaces.C.int := 0;
-
    --  The next value is used in mapping the Ada types onto the C types, it is the word size used for all data
    --  in SDL, i.e. all data is 4 byte aligned so it works with 32-bit architectures.
    Word : constant := 4;

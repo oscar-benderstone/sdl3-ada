@@ -8,13 +8,13 @@
 
 package body SDL3 is
    function Initialise_Sub_System (Flags : Init_Flags) return Boolean is
-      function SDL_Init_Sub_System (Flags : Init_Flags) return C.int
+      function SDL_Init_Sub_System (Flags : Init_Flags) return C.C_bool
       with
         Import        => True,
         Convention    => C,
         External_Name => "SDL_InitSubSystem";
    begin
-      return (SDL_Init_Sub_System (Flags) = Success);
+      return Boolean (SDL_Init_Sub_System (Flags));
    end Initialise_Sub_System;
 
    function SDL_Was_Initialised
