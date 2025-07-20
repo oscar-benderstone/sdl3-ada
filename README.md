@@ -2,7 +2,11 @@
 
 Unofficial SDL3 bindings for Ada,
 modifying code from [sdlada](https://github.com/ada-game-framework/sdlada)
-for SDL2.
+for SDL2. These are comprehensive
+and aim to include _everything_
+from the header files,
+either through imports or
+manually defined constants.
 
 To get started, first
 look at [vendored/README.md](/vendored/README.md).
