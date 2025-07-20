@@ -16,6 +16,6 @@ begin
    Locales := SDL3.Locale.Get_Preferred_Locales (Locales_Count);
 
    SDL3.Log.Put ("Hello, SDL3_Ada!");
-   SDL3.Log.Put (Value (Locales.all.all.language));
+   SDL3.Log.Put ("Your language is: " & Value (Locales.all.all.language));
    SDL3.Quit;
 end Tests;
