@@ -17,9 +17,9 @@ project Tests is
 
    -- TODO: link this in sdl3_ada.
    -- This shouldn't be necessary!
-   package Linker is
-      for Default_Switches ("Ada") use ("-lSDL3");
-   end Linker;
+   -- package Linker is
+   --    for Linker_Options use ("-L/usr/lib64/libSDL3 -lSDL3");
+   -- end Linker;
 
    package Install is
       for Artifacts (".") use ("share");

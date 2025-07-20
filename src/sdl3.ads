@@ -15,7 +15,10 @@ with Interfaces.C;
 
 package SDL3 is
    pragma Pure;
+   -- TODO: make this cross-platform,
+   -- like original sdlada
    -- pragma Linker_Options (SDL_Linker.Options);
+   pragma Linker_Options ("-lSDL3");
 
    package C renames Interfaces.C;
 
