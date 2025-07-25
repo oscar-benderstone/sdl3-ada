@@ -14,10 +14,6 @@
 
 package SDL3.Log is
    pragma Preelaborate;
-   -- NOTE: this is an optional requirement.
-   -- Message lengths can be unlimited
-   -- in SDL3.
-   Max_Length : constant Integer := 4096;
 
    type Categories is
      (Application,
@@ -41,19 +37,6 @@ package SDL3.Log is
       Reserved10,
       Custom);
 
-   -- subtype Reserved_Categories is
-   --   Categories range Categories'Pos (GPU) .. Categories'Pos (Reserved10);
-
-   -- --  Reserved categories.
-   -- Reserved_First : constant Categories := 9;
-   -- Reserved_Last  : constant Categories := 18;
-   --
-   -- --  Custom categories.
-   -- Custom_Category : constant Categories := 19;
-   --
-   -- subtype Custom_Categories is
-   --   Categories range Custom_Category .. Categories'Last;
-   --
    type Priorities is (Verbose, Debug, Info, Warn, Error, Critical)
    with Convention => C;
 

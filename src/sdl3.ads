@@ -24,6 +24,9 @@ package SDL3 is
 
    use type C.int;
 
+   -- TODO: refactor to directly create
+   -- the respectve package.
+   -- This enum shouldn't be necessary.
    type Init_Flags is
      (Null_Flag,
       Enable_Timer,
