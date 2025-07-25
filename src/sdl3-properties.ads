@@ -1,19 +1,25 @@
--- SPDX-FileCopyrightText: Copyright contributors to the sdlada project.
--- SPDX-License-Identifier: Zlib
+-- SPDX-FileCopyrightText: Copyright contributors to the sdlada project. --
+-- SPDX-License-Identifier: Zlib --
+--
+-----------------------------------------------------------------------
+-- SDL.Properties --
+--
+-- From the SDL3 documentation: --
+--
+-- "A property is a variable that can be created and retrieved by name at --
+-- runtime." --
+--
+-- Properties are put into groups, which are identified --
+-- by integer IDS. They can be used as hashes: --
+-- created, cleared, inserted, and destroyed. --
+--
+-- TODO: compare with Ada's hash tables. Maybe these are more reliable? --
+-----------------------------------------------------------------------
 
---------------------------------------------------------------------------------------------------------------------
--- SDL.Properties
---
--- From the SDL3 documentation:
---
--- "A property is a variable that can be created and retrieved by name at
--- runtime."
---
--- Properties are put into groups, which are identified
--- by integer IDS. They can be used as hashes:
--- created, cleared, inserted, and destroyed.
---
--- TODO: compare to Ada's existing hash tables.
+-- with Interfaces.C.Strings; --
+
+-- generic --
+--    type T is private; --
 
 package SDL3.Properties is
    type ID is mod 2**32 with Convention => C;
@@ -25,18 +31,13 @@ package SDL3.Properties is
      Convention    => C,
      External_Name => "SDL_GetGlobalProperties";
 
-   -- TODO: maybe abstract this away?
    function Create return ID
    with
      Import        => True,
      Convention    => C,
      External_Name => "SDL_CreateProperties";
 
-   function Copy (source : in out ID; dst : in out ID) return Boolean;
+   function Copy (source : in out ID; dst : in out ID) return C.C_bool
+   with Import => True, Convention => C, External_Name => "SDL_CopyProperties";
 
-   -- TODO: determine if this is compatible with
-   -- Ada's tasks!
-   function Lock (props : in out ID) return Boolean;
-
-   procedure Unlock (props : in out ID);
-end;
+end SDL3.Properties;

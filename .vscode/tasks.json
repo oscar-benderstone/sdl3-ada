@@ -1,0 +1,61 @@
+{
+  "tasks": [
+    {
+      "label": "Diagnotsics",
+      "type": "shell",
+      "command": "alr",
+      "isBackground": true,
+      "args": ["build", "--", "'-cargs:ada'", "-gnatef"],
+      "problemMatcher": [
+        {
+          "name": "ada-error",
+          "label": "Gnat Ada Error Problem Matcher",
+          "fileLocation": ["autoDetect", "${workspaceRoot}"],
+          "source": "ada",
+          "severity": "error",
+          "pattern": [
+            {
+              "regexp": "^([^:]:?[^:]*):(\\d+):(\\d+):\\s+[\\(:]?(error)[\\):]?\\s+(.*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3,
+              "message": 5
+            }
+          ]
+        },
+        {
+          "name": "ada-warning",
+          "label": "Gnat Ada Warning Problem Matcher",
+          "fileLocation": ["autoDetect", "${workspaceRoot}"],
+          "source": "ada",
+          "severity": "warning",
+          "pattern": [
+            {
+              "regexp": "^([^:]:?[^:]*):(\\d+):(\\d+):\\s+[\\(:]?(warning|medium|medium warning|low|low warning|style)[\\):]?\\s+(.*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3,
+              "message": 5
+            }
+          ]
+        },
+        {
+          "name": "ada-info",
+          "label": "Gnat Ada Info Problem Matcher",
+          "fileLocation": ["autoDetect", "${workspaceRoot}"],
+          "source": "ada",
+          "severity": "info",
+          "pattern": [
+            {
+              "regexp": "^([^:]:?[^:]*):(\\d+):(\\d+):\\s+[\\(:]?(info|[Nn]ote|check)[\\):]?\\s+(.*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3,
+              "message": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,6 +6,10 @@ SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
 SPDX-License-Identifier = "Zlib"
 
 # Primarily included to satisfy REUSE.
+[[annotations]]
+path = ".vscode/tasks.json"
+SPDX-FileCopyrightText = "Copyright contributors to the sdl3_ada project."
+SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
 path = ".gitignore"

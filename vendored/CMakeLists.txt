@@ -90,7 +90,7 @@ if(SDLMIXER_VENDORED)
   FetchContent_Declare(
     SDL3_mixer
     GIT_REPOSITORY "https://github.com/libsdl-org/SDL_mixer.git"
-    GIT_TAG "main"
+    GIT_TAG "dd801fd"
     EXCLUDE_FROM_ALL
   )
   FetchContent_MakeAvailable(SDL3_mixer)

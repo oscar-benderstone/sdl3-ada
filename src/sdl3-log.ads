@@ -14,7 +14,6 @@
 
 package SDL3.Log is
    pragma Preelaborate;
-
    -- NOTE: this is an optional requirement.
    -- Message lengths can be unlimited
    -- in SDL3.

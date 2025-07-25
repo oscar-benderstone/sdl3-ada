@@ -14,7 +14,7 @@
 with Interfaces.C;
 
 package SDL3 is
-   pragma Pure;
+   pragma Preelaborate;
    -- TODO: make this cross-platform,
    -- like original sdlada
    -- pragma Linker_Options (SDL_Linker.Options);
@@ -37,62 +37,6 @@ package SDL3 is
    Enable_Sensors         : constant Init_Flags := 16#0000_8000#;
    -- WARNING: SDL_INIT_EVERYTHING was deprecated in SDL3.
    -- The recommended use is to manually add Init_Flags.
-
-   --  Coordinates are for positioning things.
-   subtype Coordinate is C.int;
-   subtype Natural_Coordinate is Coordinate range 0 .. Coordinate'Last;
-   subtype Positive_Coordinate is Coordinate range 1 .. Coordinate'Last;
-
-   Centre_Coordinate : constant Coordinate := 0;
-
-   type Coordinates is record
-      X : SDL3.Coordinate;
-      Y : SDL3.Coordinate;
-   end record
-   with Convention => C;
-
-   Zero_Coordinate : constant Coordinates := (others => 0);
-
-   subtype Natural_Coordinates is Coordinates
-   with
-     Dynamic_Predicate =>
-       Natural_Coordinates.X >= Natural_Coordinate'First
-       and Natural_Coordinates.Y >= Natural_Coordinate'First;
-
-   subtype Positive_Coordinates is Coordinates
-   with
-     Dynamic_Predicate =>
-       Positive_Coordinates.X >= Positive_Coordinate'First
-       and Positive_Coordinates.Y >= Positive_Coordinate'First;
-
-   --  Dimensions are for sizing things.
-   subtype Dimension is C.int;
-   subtype Natural_Dimension is Dimension range 0 .. Dimension'Last;
-   subtype Positive_Dimension is Dimension range 1 .. Dimension'Last;
-
-   type Sizes is record
-      Width  : Dimension;
-      Height : Dimension;
-   end record
-   with Convention => C;
-
-   Zero_Size : constant Sizes := (others => Natural_Dimension'First);
-
-   subtype Natural_Sizes is Sizes
-   with
-     Dynamic_Predicate =>
-       Natural_Sizes.Width >= 0 and Natural_Sizes.Height >= 0;
-
-   subtype Positive_Sizes is Sizes
-   with
-     Dynamic_Predicate =>
-       Positive_Sizes.Width >= 1 and Positive_Sizes.Height >= 1;
-
-   function "*" (Left : in Sizes; Scale : in Positive_Dimension) return Sizes
-   is (Sizes'(Width => Left.Width * Scale, Height => Left.Height * Scale));
-
-   function "/" (Left : in Sizes; Scale : in Positive_Dimension) return Sizes
-   is (Sizes'(Width => Left.Width / Scale, Height => Left.Height / Scale));
 
    function Initialise_Sub_System (Flags : Init_Flags) return Boolean
    with Inline;
