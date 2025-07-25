@@ -5,12 +5,11 @@
 -- the sdlada project --
 -- <https://github.com/ada-game-framework/sdlada>, --
 -- licensed under the Zlib license. --
---------------------------------------------------------------------------------------------------------------------
---  SDL.Video
+------------------------------------------------------------------------------
+--  SDL.Video --
 --
---  Common display and video driver functionality.
---------------------------------------------------------------------------------------------------------------------
-with Interfaces.C;
+--  Common display and video driver functionality. --
+------------------------------------------------------------------------------
 
 package SDL3.Video is
    pragma Preelaborate;
@@ -18,8 +17,6 @@ package SDL3.Video is
    package C renames Interfaces.C;
 
    Video_Error : exception;
-
-   --  subtype Coordinate is C.int;
 
    type Blend_Modes is (None, Alpha_Blend, Additive, Colour_Modulate, Multiply)
    with Convention => C;
@@ -47,11 +44,14 @@ package SDL3.Video is
    function Is_Screen_Saver_Enabled return Boolean
    with Inline => True;
 
-   --  Video drivers.
+   -- NOTE : SDL_VideoIniit and SDL_VideoQuit --
+   -- have been removed in SDL3. --
+   -- TODO: make these wrappers instead. --
+
    -- function Initialise (Name : in String) return Boolean;
 
-   procedure Finalise
-   with Import => True, Convention => C, External_Name => "SDL_VideoQuit";
+   -- procedure Finalise
+   -- with Import => True, Convention => C, External_Name => "SDL_VideoQuit";
 
    --function Total_Drivers return Positive;
 

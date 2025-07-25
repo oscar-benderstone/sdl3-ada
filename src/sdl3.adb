@@ -18,7 +18,7 @@ package body SDL3 is
    end Initialise_Sub_System;
 
    function SDL_Was_Initialised
-     (Flags : Init_Flags := Null_Init_Flags) return Init_Flags
+     (Flags : Init_Flags := Null_Flag) return Init_Flags
    with Import => True, Convention => C, External_Name => "SDL_WasInit";
 
    function Get_Initialised return Init_Flags is
@@ -27,7 +27,7 @@ package body SDL3 is
       -- (https://wiki.libsdl.org/SDL3/SDL_WasInit):
       -- "Returns a mask of all initialized subsystems if flags is 0,
       -- otherwise it returns the initialization status of the specified subsystems."
-      return SDL_Was_Initialised (0);
+      return SDL_Was_Initialised (Null_Flag);
    end Get_Initialised;
 
    function Was_Initialised (Flags : Init_Flags) return Boolean is

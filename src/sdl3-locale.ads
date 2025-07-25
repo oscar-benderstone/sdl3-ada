@@ -11,8 +11,8 @@ with Interfaces.C.Strings;
 
 package SDL3.Locale is
    type Locale is record
-      language : C.Strings.chars_ptr;
-      country  : C.Strings.chars_ptr;
+      Language : C.Strings.chars_ptr;
+      Country  : C.Strings.chars_ptr;
    end record
    with Convention => C;
 
@@ -20,6 +20,8 @@ package SDL3.Locale is
    type Locale_Double_Access is access all Locale_Access;
 
    type C_int_pointer is access all C.int;
+
+   -- TODO: add a wrapper here? --
 
    function Get_Preferred_Locales
      (count : in out C_int_pointer) return Locale_Double_Access

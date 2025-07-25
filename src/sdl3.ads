@@ -24,19 +24,29 @@ package SDL3 is
 
    use type C.int;
 
-   type Init_Flags is mod 2**32 with Convention => C;
+   type Init_Flags is
+     (Null_Flag,
+      Enable_Timer,
+      Enable_Audio,
+      Enable_Video,
+      Enable_Joystick,
+      Enable_Haptic,
+      Enable_Game_Controller,
+      Enable_Events,
+      Enable_Sensors)
+   with Convention => C;
+   for Init_Flags'Size use 32;
 
-   Null_Init_Flags        : constant Init_Flags := 16#0000_0000#;
-   Enable_Timer           : constant Init_Flags := 16#0000_0001#;
-   Enable_Audio           : constant Init_Flags := 16#0000_0010#;
-   Enable_Video           : constant Init_Flags := 16#0000_0020#;
-   Enable_Joystick        : constant Init_Flags := 16#0000_0200#;
-   Enable_Haptic          : constant Init_Flags := 16#0000_1000#;
-   Enable_Game_Controller : constant Init_Flags := 16#0000_2000#;
-   Enable_Events          : constant Init_Flags := 16#0000_4000#;
-   Enable_Sensors         : constant Init_Flags := 16#0000_8000#;
-   -- WARNING: SDL_INIT_EVERYTHING was deprecated in SDL3.
-   -- The recommended use is to manually add Init_Flags.
+   for Init_Flags use
+     (Null_Flag              => 16#0000_0000#,
+      Enable_Timer           => 15#0000_0001#,
+      Enable_Audio           => 16#0000_0010#,
+      Enable_Video           => 16#0000_0020#,
+      Enable_Joystick        => 16#0000_0200#,
+      Enable_Haptic          => 16#0000_1000#,
+      Enable_Game_Controller => 16#0000_2000#,
+      Enable_Events          => 16#0000_4000#,
+      Enable_Sensors         => 16#0000_8000#);
 
    function Initialise_Sub_System (Flags : Init_Flags) return Boolean
    with Inline;
@@ -57,15 +67,4 @@ package SDL3 is
    --  Check whether a set of sub-systems were initialised.
    function Was_Initialised (Flags : Init_Flags) return Boolean
    with Inline;
-
-private
-   --  The next value is used in mapping the Ada types onto the C types, it is the word size used for all data
-   --  in SDL, i.e. all data is 4 byte aligned so it works with 32-bit architectures.
-   Word : constant := 4;
-
-   --  These constants are internal to the events system.
-   SDL_Query   : constant C.int := -1;
-   SDL_Ignore  : constant C.int := 0;
-   SDL_Disable : constant C.int := 0;
-   SDL_Enable  : constant C.int := 1;
 end SDL3;
