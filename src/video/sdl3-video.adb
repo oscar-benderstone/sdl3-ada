@@ -13,7 +13,7 @@ with SDL3.Error;
 package body SDL3.Video is
 
    function Is_Screen_Saver_Enabled return Boolean is
-      function SDL_Is_Screen_Saver_Enabled return Interfaces.C.int
+      function SDL_Is_Screen_Saver_Enabled return C.int
       with
         Import        => True,
         Convention    => C,
@@ -21,6 +21,24 @@ package body SDL3.Video is
    begin
       return (if SDL_Is_Screen_Saver_Enabled = 1 then True else False);
    end Is_Screen_Saver_Enabled;
+
+   -- function Initialise (Name : in String) return Boolean is
+   --    function SDL_Video_Init (C_Name : in C.Strings.chars_ptr) return C.int
+   --    with Import => True, Convention => C, External_Name => "SDL_VideoInit";
+   --
+   --    function SDL_Video_Init (C_Name : in C.char_array) return C.int
+   --    with Import => True, Convention => C, External_Name => "SDL_VideoInit";
+   --
+   --    Result : C.int;
+   -- begin
+   --    if Name /= "" then
+   --       Result := SDL_Video_Init (C.To_C (Name));
+   --    else
+   --       Result := SDL_Video_Init (C_Name => C.Strings.Null_Ptr);
+   --    end if;
+   --
+   --    return (Result = Success);
+   -- end Initialise;
    --
    -- function Total_Drivers return Positive is
    --    function SDL_Get_Num_Video_Drivers return C.int
