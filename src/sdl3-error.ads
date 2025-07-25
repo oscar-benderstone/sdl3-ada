@@ -21,6 +21,7 @@
 -- This issue should be tested! Maybe it's been fixed?
 
 package SDL3.Error is
+   pragma Preelaborate;
    procedure Clear
    with Import => True, Convention => C, External_Name => "SDL_ClearError";
 

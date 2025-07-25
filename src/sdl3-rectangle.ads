@@ -92,6 +92,6 @@ package SDL3.Rectangle is
    function Intersects (A, B : Rectangle) return Boolean
    is (Left (A) <= Right (B)
        and then Right (A) >= Left (A)
-       and then Top (A) >= Bottom (B)
+       and then Top (A) <= Bottom (B)
        and then Bottom (A) <= Top (B));
 end SDL3.Rectangle;
